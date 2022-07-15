@@ -5,7 +5,7 @@ metadata:
     stack: app2-stg
     app: app2-stg
   name: app2-stg
-  namespace: default
+  namespace: argocd
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -76,7 +76,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: "app2-stg"
-  namespace: "default"
+  namespace: "argocd"
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: /
     alb.ingress.kubernetes.io/success-codes: '200'
