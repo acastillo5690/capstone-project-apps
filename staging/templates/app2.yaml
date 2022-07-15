@@ -8,7 +8,7 @@ metadata:
   namespace: argocd
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 4
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -27,7 +27,7 @@ spec:
         counter: "1"
     spec:
       containers:
-      - image: yeasy/simple-web
+      - image: hello-world:latest
         imagePullPolicy: IfNotPresent
         name: webserver
         resources:	
