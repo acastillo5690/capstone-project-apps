@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    stack: app2-stg
-    app: app2-stg
-  name: app2-stg
+    stack: web-app
+    app: web-app
+  name: web-app
   namespace: argocd
 spec:
   progressDeadlineSeconds: 600
-  replicas: 3
+  replicas: 2
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: app2-stg
+      app: web-app
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -22,7 +22,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: app2-stg
+        app: web-app
       annotations:
         counter: "1"
     spec:
@@ -75,7 +75,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "app2-stg"
+  name: "web-app"
   namespace: "argocd"
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: /
@@ -87,4 +87,4 @@ spec:
       protocol: TCP
   type: NodePort
   selector:
-    app: "app2-stg"
+    app: "web-app"
