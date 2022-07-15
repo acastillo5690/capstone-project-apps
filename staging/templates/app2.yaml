@@ -27,7 +27,7 @@ spec:
         counter: "1"
     spec:
       containers:
-      - image: nginx
+      - image: apache
         imagePullPolicy: IfNotPresent
         name: webserver
         resources:	
